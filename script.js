@@ -200,7 +200,7 @@ Test data:
 Hints: Use tools from all lectures in this section so far 😉
 GOOD LUCK 😀
 */
-
+/*
 // const dogsJulia = [3, 5, 2, 12, 7];
 // const dogsKate = [4, 1, 15, 8, 3];
 
@@ -212,7 +212,9 @@ const checkDogs = function (dJ, dK) {
   // console.log(dogsAges);
 
   const dJCorrected = dJ.slice();
-  dJCorrected.splice(0, 1);
+
+  console.log(dJCorrected.splice(1, 2));
+  console.log(dJCorrected);
   dJCorrected.splice(-2);
 
   const dogsAges = dJCorrected.concat(dK);
@@ -228,3 +230,37 @@ const checkDogs = function (dJ, dK) {
 };
 
 checkDogs(dogsJulia, dogsKate);
+*/
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+// const movementsUsd = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+
+const movementsUsd = movements.map(mov => mov * eurToUsd);
+
+console.log(movements);
+console.log(movementsUsd);
+
+const movementsUsdfor = [];
+for (const mov of movements) movementsUsdfor.push(mov * eurToUsd);
+console.log(movementsUsdfor);
+
+// const movementsDescriptions = movements.map(
+//   (mov, i, arr) =>
+//     `Movement ${i + 1}: You ${mov > 0 ? `deposited` : `withdrew`} ${Math.abs(
+//       mov
+//     )}`
+// );
+
+const movementsDescriptions = movements.forEach(
+  (mov, i, arr) =>
+    `Movement ${i + 1}: You ${mov > 0 ? `deposited` : `withdrew`} ${Math.abs(
+      mov
+    )}`
+);
+
+console.log(movementsDescriptions);
