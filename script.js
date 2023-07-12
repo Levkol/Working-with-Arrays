@@ -539,6 +539,7 @@ const accountFilter = accounts.filter(acc => acc.owner === 'Jessica Davis');
 console.log(accountFilter);
 */
 
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
 console.log(movements.includes(-130));
@@ -553,3 +554,24 @@ const deposit = mov => mov > 0;
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
+*/
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat());
+
+// Bank app
+// flat
+const overalBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => (acc += mov), 0);
+console.log(overalBalance);
+
+// flatMap
+const overallBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => (acc += mov), 0);
+console.log(overallBalance2);
