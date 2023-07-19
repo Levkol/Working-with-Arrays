@@ -866,7 +866,7 @@ console.log(
 // Test data:
 // § Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
 // § Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
-
+/*
 const dogsJulia = [3, 5, 2, 12, 7];
 const dogsKate = [4, 1, 15, 8, 3];
 
@@ -896,3 +896,26 @@ const checkDogs = function (dogsJ, dogsK) {
   );
 };
 checkDogs(dogsJulia, dogsKate);
+*/
+
+//////////////////////////Coding challenge 2:
+// Test data:
+// § Data 1: [5, 2, 4, 1, 15, 8, 3]
+// § Data 2: [16, 6, 10, 5, 6, 1, 4]
+
+const calcAverageHumanAge = function (dogsAges) {
+  const humanAge = dogsAges.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+  console.log(humanAge);
+  const adult = humanAge.filter(age => age >= 18);
+  console.log(adult);
+  const avgAdultAge = adult.reduce(
+    (avg, age, _, arr) => Math.trunc(avg + age / arr.length),
+    0
+  );
+  return avgAdultAge;
+};
+const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+console.log(avg1);
+console.log(avg2);
