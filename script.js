@@ -857,3 +857,42 @@ console.log(dogs.filter(checkEatingOkay));
 
 const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
 console.log(dogsSorted);
+
+console.log(
+  `//////////////////////////////////// Coding challenges practice ////////////////////////////////////`
+);
+
+//////////////////////////Coding challenge 1:
+// Test data:
+// § Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+// § Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+
+const dogsJulia = [3, 5, 2, 12, 7];
+const dogsKate = [4, 1, 15, 8, 3];
+
+const checkDogs = function (dogsJ, dogsK) {
+  const dogsJCorrected = dogsJ.slice();
+  dogsJCorrected.splice(-2);
+  dogsJCorrected.splice(0, 1);
+  console.log(dogsJCorrected);
+
+  const dogsAges = dogsJCorrected.concat(dogsK);
+  console.log(dogsAges);
+
+  // dogsAges.forEach(function (age, i) {
+  //   if (age >= 3) {
+  //     console.log(`Dog number ${i + 1} is an adult, and is ${age} years old`);
+  //   } else {
+  //     console.log(`Dog number ${i + 1} is still a puppy`);
+  //   }
+  // });
+
+  dogsAges.forEach((age, i) =>
+    console.log(
+      `Dog number ${i + 1} is an ${
+        age >= 3 ? `adult` : `puppy`
+      }, and is ${age} years old`
+    )
+  );
+};
+checkDogs(dogsJulia, dogsKate);
