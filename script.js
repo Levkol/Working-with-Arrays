@@ -547,7 +547,6 @@ console.log(accountFor);
 const accountFilter = accounts.filter(acc => acc.owner === 'Jessica Davis');
 console.log(accountFilter);
 */
-
 /*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
@@ -564,7 +563,6 @@ console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
 */
-
 /*
 const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log(arr.flat());
@@ -902,18 +900,35 @@ checkDogs(dogsJulia, dogsKate);
 // Test data:
 // § Data 1: [5, 2, 4, 1, 15, 8, 3]
 // § Data 2: [16, 6, 10, 5, 6, 1, 4]
-
+/*
 const calcAverageHumanAge = function (dogsAges) {
   const humanAge = dogsAges.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
   console.log(humanAge);
   const adult = humanAge.filter(age => age >= 18);
   console.log(adult);
   const avgAdultAge = adult.reduce(
-    (avg, age, _, arr) => Math.trunc(avg + age / arr.length),
+    (avg, age, _, arr) => (avg + age / arr.length),
     0
   );
   return avgAdultAge;
 };
+const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+console.log(avg1);
+console.log(avg2);
+*/
+
+//////////////////////////Coding challenge 3:
+// Test data:
+// § Data 1: [5, 2, 4, 1, 15, 8, 3]
+// § Data 2: [16, 6, 10, 5, 6, 1, 4]
+const calcAverageHumanAge = ages =>
+  ages
+    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter(age => age >= 18)
+    .reduce((avg, age, _, arr) => avg + age / arr.length, 0);
+
 const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 
