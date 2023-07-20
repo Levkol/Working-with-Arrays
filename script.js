@@ -920,6 +920,7 @@ console.log(avg2);
 */
 
 //////////////////////////Coding challenge 3:
+/*
 // Test data:
 // § Data 1: [5, 2, 4, 1, 15, 8, 3]
 // § Data 2: [16, 6, 10, 5, 6, 1, 4]
@@ -934,3 +935,62 @@ const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 
 console.log(avg1);
 console.log(avg2);
+*/
+
+const Dogs = [
+{ weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+{ weight: 8, curFood: 200, owners: ['Matilda'] },
+{ weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+{ weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+
+// 1.
+// dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
+
+Dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
+console.log(Dogs);
+
+
+// 2.
+// const sarahDog = dogs.find(dog => dog.owners.includes('Sarah'));
+// console.log(
+//   ` Sarah's dog is eating too ${
+//     sarahDog.curFood > sarahDog.recFood ? `much` : `little`
+//   }`
+// );
+
+const sarDog = Dogs.find(dog => dog.owners.includes(`Sarah`))
+console.log(`Eating too ${sarDog.curFood >= sarDog.recFood ? `much` : `little`}`);
+
+// 3.
+const ownersEatTooMuch2 = Dogs.filter(dog => dog.curFood > dog.recFood).flatMap(dog => dog.owners);
+console.log(ownersEatTooMuch2)
+
+const ownersEatTooLittle2 = Dogs.filter(dog => dog.curFood < dog.recFood).flatMap(dog => dog.owners);
+console.log(ownersEatTooLittle2)
+
+
+// 4.
+console.log(`${ownersEatTooMuch2.join(` and `)} eating too much`)
+console.log(`${ownersEatTooLittle2.join(` and `)} eating to little`)
+
+// 5.
+// console.log(dogs.some(dog => dog.curFood === dog.recFood));
+console.log(Dogs.some(dog => dog.curFood === dog.recFood))
+
+// 6.
+// const checkEatingOkay = dog =>
+//   dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+// console.log(dogs.some(checkEatingOkay));
+
+const okayAmount= dog => dog => dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+console.log(Dogs.some(okayAmount))
+
+// 7.
+console.log(Dogs.filter(okayAmount))
+
+// 8.
+// const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+const sortDogs = Dogs.slice().sort((a, b) => a.recFood - b.recFood)
+console.log(sortDogs)
